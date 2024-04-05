@@ -48,6 +48,7 @@ public class ModuleTest extends AppCompatActivity {
                         setResult(RESULT_OK, intent);
                         finish();
                     } catch (JSONException e) {
+
                         Log.e("SecondActivityModule", "JSONException: " + e.getMessage());
                         e.printStackTrace();
                         setResult(RESULT_CANCELED);

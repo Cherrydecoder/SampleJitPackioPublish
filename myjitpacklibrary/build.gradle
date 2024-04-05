@@ -41,7 +41,21 @@ dependencies {
     implementation files('libs/simple-xml-2.7.1.jar')
 }
 //Maven local publish script(For Testing the library locally)
-publishing {
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            libraryProject(MavenPublication) {
+                setGroupId 'com.github.Cherrydecoder'
+                setArtifactId 'myjitpacklibrary'
+                version '1.0'
+                artifact("$buildDir/outputs/aar/myjitpacklibrary-release.aar")
+            }
+        }
+    }
+}
+
+/*publishing {
     publications {
         maven(MavenPublication) {
             groupId = 'com.github.Cherrydecoder'
@@ -55,4 +69,4 @@ publishing {
     repositories {
         mavenLocal()
     }
-}
+}*/
